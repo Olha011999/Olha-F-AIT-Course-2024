@@ -1,6 +1,6 @@
-package classwork_16.bank_account;
+package classwork_17.bank_account;
 
-import classwork_16.bank_account.model.BankAccount;
+import classwork_17.bank_account.model.BankAccount;
 
 public class BankAppl {
 
