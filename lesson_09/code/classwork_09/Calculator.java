@@ -18,7 +18,7 @@ static int result;
         boolean flag= true;
 
         while (flag) {
-            System.out.println("Continur? y/n");
+            System.out.println("Continue? y/n");
             char ch= scanner.next().charAt(0);// take first symbol
             if (ch == 'y'){
 

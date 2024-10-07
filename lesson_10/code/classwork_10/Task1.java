@@ -7,7 +7,7 @@ int[] numbers =new int[20];//length=20, indexes from 0 till 19
         //numbers [0]- 1st element of arra
         // numbers.length=20
         // numbers [numbers.length-1]
-//fill in
+//fill in array (massiv) numbers
         for (int i=0; i< numbers.length; i++){
 
             numbers[i] = i+1;
