@@ -1,10 +1,12 @@
-package classwork_18.computer_shop.model;
+package classwork_19.compare_computers;
 
-public class Smartphone extends Laptop{
+import classwork_18.computer_shop.model.Laptop;
+
+public class Smartphone2 extends Laptop {
 
     private  long imei;
 
-    public Smartphone(String cpu, int ram, int ssd, String brand, double price, double displaySize, double weight, int battaryLife, String color, long imei) {
+    public Smartphone2(String cpu, int ram, int ssd, String brand, double price, double displaySize, double weight, int battaryLife, String color, long imei) {
         super(cpu, ram, ssd, brand, price, displaySize, weight, battaryLife, color);
         this.imei = imei;
     }
@@ -21,6 +23,6 @@ public class Smartphone extends Laptop{
     public String toString() {
         return "Smartphone{" +
                 "imei=" + imei +
-                super.toString() + "} ";
+                "} " + super.toString();
     }
 }

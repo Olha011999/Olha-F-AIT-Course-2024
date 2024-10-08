@@ -1,7 +1,7 @@
 package homework_18.pets.model;
 
 import homework_16.model.Pets;
-
+//класс петс из 16 урока
 public class Cat extends Pets {
 
     private String breed;
