@@ -48,7 +48,7 @@ public class ArrayTdd {
             }
 
         }
-        return 0;
+        return count;
     }
 
 }
