@@ -28,6 +28,19 @@ class UserTest {
     }
 
 
+    @Test
+    void setEmailWithTwoDots(){
+
+        String email = "peter@mail..de";// peter@.uk.com  тоже код упашвий
+        user.setEmail(email);
+        assertEquals("peter@mail.de",user.getEmail());
+        System.out.println(user.getEmail());
+    }
+
+
+
+
+
 
     @Test
     void setEmailNoAt() {
