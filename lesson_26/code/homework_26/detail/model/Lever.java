@@ -1,6 +1,7 @@
 package homework_26.detail.model;
 
-public class Lever extends Detail{
+
+public class Lever extends Detail {
 
     private double power;
 

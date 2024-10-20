@@ -2,7 +2,8 @@ package homework_26.detail.dao;
 
 import homework_26.detail.model.Detail;
 
-public class StockImpl implements Stock{
+
+public class StockImpl implements homework_26.detail.dao.Stock {
 
 
     @Override

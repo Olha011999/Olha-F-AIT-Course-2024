@@ -2,6 +2,7 @@ package homework_26.detail.dao;
 
 import homework_26.detail.model.Detail;
 
+
 public interface Stock {
 
     boolean addDetail(Detail detail);

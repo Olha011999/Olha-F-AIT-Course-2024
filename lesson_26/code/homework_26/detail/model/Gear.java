@@ -1,5 +1,6 @@
 package homework_26.detail.model;
 
+
 public class Gear extends Detail {
 
     private  double radius;
