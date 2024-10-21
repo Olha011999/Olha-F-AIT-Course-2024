@@ -1,17 +1,18 @@
 package classwork_26.ait.employee.test;
 
-import classwork_26.ait.employee.dao.CompaneImpl;
+import classwork_26.ait.employee.dao.CompanyImpl;
 import classwork_26.ait.employee.dao.Company;
 import classwork_26.ait.employee.model.Employee;
 import classwork_26.ait.employee.model.Manager;
 import classwork_26.ait.employee.model.SalesManager;
 import classwork_26.ait.employee.model.Worker;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class CompaneImplTest {
+class CompanyImplTest {
 
     Company company;
     Employee[] employees;
@@ -21,7 +22,7 @@ class CompaneImplTest {
     void setUp() {
 
         //create object
-        company = new CompaneImpl(5);
+        company = new CompanyImpl(5);
 
         //fill array to fill object company
         employees = new Employee[4];
@@ -43,21 +44,21 @@ class CompaneImplTest {
         assertEquals(4, company.quantity());
 
         // can't add null
-        assertFalse(company.addEmployee(null));
+        Assertions.assertFalse(company.addEmployee(null));
 
         //can't add duplicate
-        assertFalse(company.addEmployee(employees[1]));
+        Assertions.assertFalse(company.addEmployee(employees[1]));
 
         //can add new one employee
         Employee newEmployee = new Worker(5, "N5", "SN5", 160, 20);
-        assertTrue(company.addEmployee(newEmployee));
+        Assertions.assertTrue(company.addEmployee(newEmployee));
 
         //check quantity=size
         assertEquals(5, company.quantity());
 
         //can't one more employee
         Employee oneMoreEmployee = new Worker(6, "N6", "SN6", 160, 20);
-        assertFalse(company.addEmployee(oneMoreEmployee));
+        Assertions.assertFalse(company.addEmployee(oneMoreEmployee));
 
     }
 
@@ -70,7 +71,7 @@ class CompaneImplTest {
         assertEquals(3, company.quantity());
 
         //can't remove absent
-        assertNull(company.removeEmployee(7));
+        Assertions.assertNull(company.removeEmployee(7));
 
 
     }
@@ -81,11 +82,11 @@ class CompaneImplTest {
         assertEquals(employees[2], company.findEmployee(3));
 
         //find absent
-        assertNull(company.findEmployee(7));
+        Assertions.assertNull(company.findEmployee(7));
     }
 
     @Test
-    void updateEmployee() {
+    void updateEmployeeTest() {
     }
 
     @Test
@@ -101,18 +102,30 @@ class CompaneImplTest {
 
     @Test
     void totalSalaryTest() {
+        double totalSalary = 29200;
+        assertEquals(totalSalary, company.totalSalary());
 
+    }
+
+    @Test
+    void averageSalaryTest() {
+        assertEquals(7300, company.averageSalary());
     }
 
     @Test
     void totalSalesTest() {
+        assertEquals(130000, company.totalSales());
     }
 
     @Test
     void findEmployeeHoursGreaterThanTest() {
+        Employee[] result = company.findEmployeeHoursGreaterThan(160);
+        assertEquals(0, result.length);
     }
 
     @Test
     void findEmployeSalaryRangeTest() {
+        Employee[] result = company.findEmployeeHoursGreaterThan(600);
+        assertEquals(0, result.length);
     }
 }

@@ -1,14 +1,15 @@
 package classwork_26.ait.employee.dao;
 
 import classwork_26.ait.employee.model.Employee;
+import classwork_26.ait.employee.model.SalesManager;
 
-public class CompaneImpl implements Company {
+public class CompanyImpl implements Company {
 
     private Employee[] employees;
     private int size;
 
     //capasity  максимальное количество людей на фирме
-    public CompaneImpl(int capacity) {
+    public CompanyImpl(int capacity) {
         this.employees = new Employee[capacity];
         this.size = size;
     }
@@ -77,22 +78,71 @@ public class CompaneImpl implements Company {
 
     @Override
     public double totalSalary() {
-        return 0;
+        double totalSalary = 0;
+        for (int i = 0; i < size; i++) {
+            totalSalary += employees[i].calcSalary();
+        }
+        return totalSalary;
     }
 
     @Override
     public double totalSales() {
-        return 0;
+        double totalSales = 0;
+        for (int i = 0; i < size; i++) {
+            if (employees[i] instanceof SalesManager){
+                SalesManager sm = (SalesManager) employees[i];
+                totalSales += sm.getSalesValue();
+            }
+        }
+        return totalSales;
+    }
+
+    @Override
+    public double averageSalary() {
+        if (size == 0){
+            return  0;//если сотрудников нет, тогда возвращаем 0
+        }
+        return totalSalary()/size;
     }
 
     @Override
     public Employee[] findEmployeeHoursGreaterThan(int hours) {
-        return new Employee[0];
+        int count = 0;
+
+        // Сначала считаем количество сотрудников с часами больше чем 'hours'
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] != null && employees[i].getHours() > hours) {
+                count++;
+            }
+        }
+
+        // Создаем новый массив для сотрудников, которые соответствуют критерию
+        Employee[] result = new Employee[count];
+        int index = 0;
+
+        // Заполняем массив результатами
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] != null && employees[i].getHours() > hours) {
+                result[index] = employees[i];
+                index++;
+            }
+        }
+
+        return result;
     }
 
     @Override
     public Employee[] findEmployeSalaryRange(double minSalalry, double maxSalary) {
-        return new Employee[0];
+        Employee[] result = new Employee[size];// массив для хранения результатов
+        int count = 0;
+
+        for (int i = 0; i < size; i++) {
+            double salary = employees[i].calcSalary();
+            if (salary >= minSalalry && salary <= maxSalary ){
+                result[count++] = employees[i];
+            }
+        }
+        return new Employee[]{result[count++]};
     }
 
 

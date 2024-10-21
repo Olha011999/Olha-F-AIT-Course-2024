@@ -5,12 +5,25 @@ import homework_27.computer_equipmen.model.ComputerEquipment;
 public class ShopImpl implements ShopInterface {
     @Override
     public ComputerEquipment[] findDiscountedComputers(ComputerEquipment[] computers) {
-        ComputerEquipment[] discountedComputersList = new ComputerEquipment();
+        // First, count how many computers are discounted
+        int count = 0;
         for (ComputerEquipment computer : computers) {
-            if (computers.i()) { // предположим, что у класса Computer есть метод isDiscounted()
-                discountedComputersList.add(computers);
+            if (computer.isDiscounted()) { // Assuming ComputerEquipment has a method isDiscounted()
+                count++;
             }
         }
-        return discountedComputersList.toArray(new Computer[0]); // преобразование списка в массив
+
+        // Create an array to hold the discounted computers
+        ComputerEquipment[] discountedComputers = new ComputerEquipment[count];
+
+        // Add the discounted computers to the new array
+        int index = 0;
+        for (ComputerEquipment computer : computers) {
+            if (computer.isDiscounted()) {
+                discountedComputers[index++] = computer;
+            }
+        }
+
+        return discountedComputers; // Return the array of discounted computers
     }
 }
