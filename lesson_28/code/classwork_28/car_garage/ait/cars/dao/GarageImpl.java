@@ -11,7 +11,7 @@ public class GarageImpl implements Garage{
 
     public GarageImpl(int capasity) {
         this.cars = new Car[capasity];
-        this.size = size;
+        this.size = 0;
     }
 
     @Override
@@ -27,7 +27,19 @@ public class GarageImpl implements Garage{
 
     @Override
     public Car removeCar(String regNumber) {
-        return null;
+        for (int i = 0; i < size; i++) {
+            if (cars[i].getRegNumber().equals(regNumber)) {
+                Car removedCar = cars[i];
+                // Сдвигаем элементы массива
+                for (int j = i; j < size - 1; j++) {
+                    cars[j] = cars[j + 1];
+                }
+                cars[size - 1] = null; // Убираем последний элемент, который теперь дублируется
+                size--; // Уменьшаем размер гаража
+                return removedCar;
+            }
+        }
+        return null; // Если автомобиль не найден
     }
 
     @Override
@@ -52,13 +64,14 @@ public class GarageImpl implements Garage{
 
     @Override
     public Car[] findCarsByEngine(double min, double max) {
-        return new Car[0];
+        return findCarsByPredicate(car -> car.getEngine() > min && car.getEngine() < max);
+
     }
 
 
     @Override
     public Car[] findCarsByColor(String color) {
-        return new Car[0];
+        return findCarsByPredicate(car -> car.getColor().equals(color));// сравнение для примитивных типов ==, а для String-equals(не примитивных)
     }
 
     @Override

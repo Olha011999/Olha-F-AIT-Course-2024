@@ -31,15 +31,22 @@ class GarageImplTest {
 
     @Test
     void addCarTest() {
+        Car newСar = new Car("Number5", "Model4", "Company2", 2.0, "Green");
+        assertTrue(garage.addCar(newСar));
+        garage.printCars();
     }
 
     @Test
     void removeCarTest() {
+        garage.removeCar("Number3");
+        assertNull(garage.findCarByRegNumber("Number3"));
     }
 
     @Test
     void findCarsByRegNumbeTestr() {
-
+        Car car = garage.findCarByRegNumber("Number2");
+        assertNotNull(car);
+        assertEquals("Number2",car.getRegNumber());
     }
 
     @Test
@@ -52,16 +59,25 @@ class GarageImplTest {
 
     @Test
     void findCarsByCompanyTest() {
+        Car[] expected = {cars[0], cars[1]};
+        Car[] actual = garage.findCarsByCompany("Company1");
+        assertArrayEquals(expected, actual); // Используем assertArrayEquals для сравнения содержимого массива
     }
 
 
     @Test
-    void indCarsByEngine(){
+    void findCarsByEngine(){
+        Car[] expected = {cars[0], cars[2]};
+        Car[] actual = garage.findCarsByEngine(1.0, 2.0);
+        assertArrayEquals(expected, actual);
 
     }
 
     @Test
     void findCarsByColorTest() {
+        Car[] expected = {cars[0], cars[2]};
+        Car[] actual = garage.findCarsByColor("Red");
+        assertArrayEquals(expected, actual);
     }
 
     @Test
