@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class WineTest {
 
     Wine[] wines;

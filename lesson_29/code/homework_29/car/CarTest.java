@@ -1,16 +1,15 @@
 package homework_29.car;
 
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Comparator;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class CarTest {
 
-    Car[] cars;
+   Car[] cars;
     @BeforeEach
     void setUp() {
 
@@ -42,7 +41,7 @@ class CarTest {
 
     @Test
     void sortCarsByRegNumberTest(){
-        Comparator<Car> comparatorByRegNumber = new Comparator<Car>() {
+        Comparator<homework_29.car.Car> comparatorByRegNumber = new Comparator<homework_29.car.Car>() {
             @Override
             public int compare(Car car1, Car car2) {
                 return car1.getRegNumber().compareTo(car2.getRegNumber());
