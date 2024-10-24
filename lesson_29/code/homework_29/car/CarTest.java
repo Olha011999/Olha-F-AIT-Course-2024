@@ -112,7 +112,7 @@ class CarTest {
         System.out.println("-----------List Car as is");
         printAllCars();
         Arrays.sort(cars, comparatorByYearOfCarProduction);
-        System.out.println("-----------List cars sorted by color");
+        System.out.println("-----------List cars sorted by production");
         printAllCars();
     }
 
@@ -127,7 +127,7 @@ class CarTest {
         System.out.println("-----------List Car as is");
         printAllCars();
         Arrays.sort(cars, comparatoByPrice);
-        System.out.println("-----------List cars sorted by color");
+        System.out.println("-----------List cars sorted by price");
         printAllCars();
     }
 }
