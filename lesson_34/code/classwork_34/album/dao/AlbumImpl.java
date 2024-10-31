@@ -5,6 +5,7 @@ import classwork_34.album.model.Photo;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.function.Predicate;
 
 public class AlbumImpl implements Album{
 
@@ -33,7 +34,7 @@ public class AlbumImpl implements Album{
         // Arrays.sort(photos, comparator);
         // find index where insert photo
         int index = Arrays.binarySearch(photos, 0, size, photo, comparator);
-        index = index >=0 ? index : - index - 1;
+        index = index >= 0 ? index : -index - 1;
         // эту строчку надо добавить, мы в ней раздвигаем массив для вставки элемента
         System.arraycopy(photos, index, photos, index + 1, size - index);
         photos[index] = photo;
@@ -110,5 +111,18 @@ public class AlbumImpl implements Album{
     @Override
     public int size() {
         return size;
+    }
+
+    //служебный метод отбора объектов из массива по критерию
+
+    private Photo[] findPhotoByPredicate(Predicate<Photo> predicate) {
+        Photo[] res = new Photo[size];
+        int j = 0; // это индексы массива результатов
+        for (int i = 0; i < size; i++) {
+            if(predicate.test(photos[i])){
+                res[j++] = photos[i];
+            }
+        }
+        return Arrays.copyOf(res, j); // обрезаем хвост из null
     }
 }
