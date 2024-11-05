@@ -1,4 +1,4 @@
-package homework_38.exchangeRate;
+package homework_39.exchangeRate;
 
 import java.util.Scanner;
 

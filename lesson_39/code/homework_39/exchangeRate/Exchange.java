@@ -1,4 +1,4 @@
-package homework_38.exchangeRate;
+package homework_39.exchangeRate;
 ////Создайте enum с кодами валют и их текущими курсами к евро. Убедитесь, что в списке нет дублирующихся кодов валют. Выведите список валют и их курсов на экран.
 public enum Exchange {
     USD(1.09), UAH(44.91), PLN(4.36), CAD(1.51)
