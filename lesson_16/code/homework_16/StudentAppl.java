@@ -23,11 +23,11 @@ public class StudentAppl {
         student3.study();
 
         System.out.println();
-        System.out.println("Students who are on vacation");
+        System.out.println("StudentRegistration who are on vacation");
         student1.tookVacation();
 
         System.out.println();
-        System.out.println("Students who passed the exam");
+        System.out.println("StudentRegistration who passed the exam");
         student2.passedExam();
         student3.passedExam();
 

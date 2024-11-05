@@ -18,11 +18,13 @@ public class GermanAppl {
         System.out.println("Cities: " + cities);
 
         cities.addFirst("Hanover");
-        System.out.println("After adding Hanover the beginning: " + cities);
+        System.out.println("After adding Hanover at the beginning: " + cities);
+        cities.remove("Hanover");
 
         int middle = cities.size()/2;
         cities.add(middle, "Hanover");
         System.out.println("After adding Hanover in the middle: " + cities);
+        cities.remove("Hanover");
 
         cities.addLast("Hanover");
         System.out.println("After adding Hanover to the end: " + cities);

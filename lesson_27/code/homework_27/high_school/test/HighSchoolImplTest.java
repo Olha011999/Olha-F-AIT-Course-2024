@@ -79,7 +79,7 @@ class HighSchoolImplTest {
         highSchool.addPerson(new Student(5,"John", 23, 4.5));
 
         // Выводим студентов с оценками в диапазоне 3.0 - 4.0
-        System.out.println("Students with grades between 3.0 and 4.0:");
+        System.out.println("StudentRegistration with grades between 3.0 and 4.0:");
         highSchool.findStudentsWithGradeInRange(3.0, 4.0);
 
         // Ожидается, что будут найдены студенты Alice и Bob
