@@ -1,8 +1,8 @@
-package homework_39.supermarket.dao;
+package homework_39.ait.supermarket_arraylist.dao;
 
-import homework_39.supermarket.model.Product;
+import homework_39.ait.supermarket_arraylist.model.Product;
 
-public interface Supermarket {
+public interface Supermarket extends Iterable<Product> {
 
     boolean addProduct(Product product);
     Product removeProduct(long barCode);

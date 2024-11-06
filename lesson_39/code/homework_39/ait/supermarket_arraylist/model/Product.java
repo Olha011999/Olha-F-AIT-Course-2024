@@ -1,4 +1,4 @@
-package homework_39.supermarket.model;
+package homework_39.ait.supermarket_arraylist.model;
 
 import java.time.LocalDate;
 import java.util.Objects;
