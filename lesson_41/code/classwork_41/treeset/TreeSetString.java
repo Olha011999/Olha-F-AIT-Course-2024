@@ -18,8 +18,8 @@ public class TreeSetString {
             System.out.println(str);
         }
         System.out.println("-----------------------------");
-        System.out.println(rivers.higher("Rein")); // Volga
-        System.out.println(rivers.lower("Rein")); // Neva
+        System.out.println(rivers.higher("Rein")); // Volga, правее
+        System.out.println(rivers.lower("Rein")); // Nevaб, левее
 
     }
 

@@ -46,27 +46,27 @@ public class CitizensImpl implements Citizens {
 
     // O (log(n)) -
     //  ищем место для вставки бинарным поиском, вставка в ArrayList
-    @Override
+       @Override
     public boolean add(Person person) {
-        // если объект person равен null, то возвращаем false, чтобы не добавлять пустой объект в списки.
-        if (person == null) {
-            return false;
-        }
-        // c  помощью бинарного поиска ищем место для вставки "person"
-        int index = Collections.binarySearch(idList, person); // определяем с помощью бинарного поиска, есть ли в idList такой объект "person"
-        if (index >= 0) { // если index >= 0, это значит, что "person" уже существует в "idList", и мы не добавляем его повторно. Возвращаем false, чтобы обозначить, что добавление не выполнено.
-            return false;
-        }
-        index = -index - 1; //Если "index" < 0, это означает, что "person" не найден, и значение "index" теперь указывает на предполагаемую позицию для вставки.        // Мы изменяем "index" на "-index - 1", чтобы получить корректную позицию для вставки нового элемента и сохранить порядок списка "idList".
-        idList.add(index, person); // добавляем объект "person" в "idList" на определенную позицию
-        // добавляем "person" в список "ageList", отсортированный по возрасту
-        index = Collections.binarySearch(ageList, person, ageComparator);
-        index = index >= 0 ? index : - index - 1;// Рассчитываем корректную позицию для вставки
-        ageList.add(index, person);
-        index = Collections.binarySearch(lastNameList, person, lastNameComparator);
-        index = index >= 0 ? index : -index - 1;
-        lastNameList.add(index, person);
-        return true;
+           // если объект person равен null, то возвращаем false, чтобы не добавлять пустой объект в списки.
+           if (person == null) {
+               return false;
+           }
+           // c  помощью бинарного поиска ищем место для вставки "person"
+           int index = Collections.binarySearch(idList, person); // определяем с помощью бинарного поиска, есть ли в idList такой объект "person"
+           if (index >= 0) { // если index >= 0, это значит, что "person" уже существует в "idList", и мы не добавляем его повторно. Возвращаем false, чтобы обозначить, что добавление не выполнено.
+               return false;
+           }
+           index = -index - 1; //Если "index" < 0, это означает, что "person" не найден, и значение "index" теперь указывает на предполагаемую позицию для вставки.        // Мы изменяем "index" на "-index - 1", чтобы получить корректную позицию для вставки нового элемента и сохранить порядок списка "idList".
+           idList.add(index, person); // добавляем объект "person" в "idList" на определенную позицию
+           // добавляем "person" в список "ageList", отсортированный по возрасту
+           index = Collections.binarySearch(ageList, person, ageComparator);
+           index = index >= 0 ? index : - index - 1;// Рассчитываем корректную позицию для вставки
+           ageList.add(index, person);
+           index = Collections.binarySearch(lastNameList, person, lastNameComparator);
+           index = index >= 0 ? index : -index - 1;
+           lastNameList.add(index, person);
+           return true;
     }
 
     // O (n)

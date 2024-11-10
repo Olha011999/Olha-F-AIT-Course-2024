@@ -24,13 +24,13 @@ public class TreeSetInteger {
         System.out.println(numbers.first()); // -230
         System.out.println(numbers.last()); // 100500
 
-        System.out.println(numbers.ceiling(5)); //10
+        System.out.println(numbers.ceiling(5)); //10, используется для поиска наименьшего элемента в наборе, который больше или равен указанному значению
         System.out.println(numbers.contains(5)); // false
-        System.out.println(numbers.floor(5)); // 0
+        System.out.println(numbers.floor(5)); // 0, служит базой для поиска ближайшего меньшего или равного значения.
 
-        System.out.println(numbers.tailSet(5)); // 10, 13, ...
+        System.out.println(numbers.tailSet(5)); // 10, 13, ..., используется для получения подмножества элементов, начиная с заданного элемента (включительно по умолчанию) и до конца набора
 
-        System.out.println(numbers.subSet(-50, 30)); // 0, 10, 13, 20
+        System.out.println(numbers.subSet(-50, 30)); // 0, 10, 13, 20, используется для получения подмножества элементов в определённом диапазоне. Это позволяет выделить часть множества между двумя значениями, указав начальный и конечный элемент (с возможностью включения или исключения этих пределов).
 
         System.out.println(numbers.subSet(-80, true, 30, true)); // -80, 0, 10, 13, 20, 30
 

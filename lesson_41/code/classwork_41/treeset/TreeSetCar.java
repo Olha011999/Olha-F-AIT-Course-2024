@@ -20,7 +20,7 @@ public class TreeSetCar {
             carTreeSet.add(car);
         }
         System.out.println("===================================");
-        System.out.println(carTreeSet.size()); // 3
+        System.out.println(carTreeSet.size()); // 4
         for (Car car: carTreeSet) {
             System.out.println(car);
         }

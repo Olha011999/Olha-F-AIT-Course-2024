@@ -1,5 +1,6 @@
 package homework_41.citizens.dao;
 
+
 import homework_41.citizens.model.Person;
 
 public interface Citizens {
