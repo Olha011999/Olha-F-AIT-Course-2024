@@ -1,3 +1,5 @@
+package classwork_03;
+
 public class Rectangle {
 
     // Вычислить площадь прямоугольника.

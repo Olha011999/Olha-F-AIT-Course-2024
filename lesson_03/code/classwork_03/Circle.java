@@ -1,3 +1,5 @@
+package classwork_03;
+
 public class Circle {
 
     //Вычислить длину окружности по ее радиусу.

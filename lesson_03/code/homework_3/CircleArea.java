@@ -13,7 +13,7 @@ public class CircleArea {
         System.out.println(circleArea);
 
         double S= circleAreaMethod(r);
-        System.out.println("Circle area S= " +S);
+        System.out.println("classwork_03.Circle area S= " +S);
 
     }
     private static double circleAreaMethod (double r) {

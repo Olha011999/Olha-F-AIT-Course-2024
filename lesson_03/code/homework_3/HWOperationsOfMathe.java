@@ -14,7 +14,7 @@ public class HWOperationsOfMathe {
         double PI = 3.14159;
         double squaer = areaOfCircle(PI, radius);
 
-        System.out.println("Circle area with radius = " + radius + " is " + squaer);
+        System.out.println("classwork_03.Circle area with radius = " + radius + " is " + squaer);
 
         //Метод вычисляющий периметр прямоугольника по двум сторонам
 
