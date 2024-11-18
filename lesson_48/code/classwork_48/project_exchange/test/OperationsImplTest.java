@@ -88,6 +88,7 @@ class OperationsImplTest {
 //        double actualResult = operations.calcRes(currencyName);
 //
 //        assertEquals(expectedResult, actualResult, 0.01);
+
     }
 
     @Test
