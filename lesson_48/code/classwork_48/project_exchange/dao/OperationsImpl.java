@@ -35,7 +35,6 @@ public class OperationsImpl implements Operations {
                     System.out.println("See you later! Bye.");
                     break;
                 }
-
                 CurrencyExchange choice = CurrencyExchange.findByNumber(actionNum);
                 if (choice == null) {
                     System.out.println("Invalid currency number. Try again.");
