@@ -14,7 +14,7 @@ public interface Operations {
     List<Transaction> findTransByDate (LocalDate dateFrom, LocalDate dateTo);
     List<Transaction> findTransByType (boolean type);
     int quantity ();
-    double calcRes (String name);
+    double calcRes (String name,  double amount, int operationType);
     double calcMarge (String name);
     void printTrans ();
 

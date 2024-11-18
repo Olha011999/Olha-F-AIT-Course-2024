@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class OperationsImplTest {
     private OperationsImpl operations;
@@ -25,20 +25,39 @@ class OperationsImplTest {
         operations = new OperationsImpl(transactions);
 
     }
+
     @Test
     void addTrans() {
+        int newTransNum = 5;
+        Transaction add = operations.addTrans(newTransNum);
+        assertEquals(newTransNum, add.getNumber());
     }
+
 
     @Test
     void removeTrans() {
+        boolean res = operations.removeTrans(2);
+        assertTrue(res);
+        assertNull(operations.findTrans(2));
+        boolean resNotFound = operations.removeTrans(111);
     }
 
     @Test
     void findTrans() {
+        Transaction found = operations.findTrans(3);
+        assertNull(found);
+        assertEquals(3, found.getNumber());
+        Transaction notFound = operations.findTrans(111);
     }
 
     @Test
     void findTransByDate() {
+        LocalDate dateFrom = LocalDate.now().minusDays(2);
+        LocalDate dateTo = LocalDate.now();
+        List<Transaction> foundTrans = operations.findTransByDate(dateFrom, dateTo);
+        assertNotNull(foundTrans);
+        assertFalse(foundTrans.isEmpty());
+        assertEquals(3, foundTrans.size());
     }
 
     @Test
@@ -57,46 +76,41 @@ class OperationsImplTest {
         assertEquals(2, buyingTransactions.size());
         assertEquals("EUR", buyingTransactions.get(0).getName());
         assertEquals("GPB", buyingTransactions.get(1).getName());
+
     }
 
     @Test
     void quantity() {
-        int count = operations.quantity();
         // узнаем количество транзакций
+        int count = operations.quantity();
         assertEquals(4, count);
     }
 
     @Test
     void calcRes() {
 
-        double result = operations.calcRes("USD");
-//         узнаем сколько всего различных валют есть
-        assertEquals(1000, result, 0.01);
-//
-//        // предоставляем данные для обмена
-//        double amountToExchange = 100;
-//        String currencyName = "USD";
-//        String operationType ="true"; //продажа
-//
-//        // получаем курс из enum для валюты USD
-//        double rate = 1.5;
-//        double margin = rate * 0.05;  // 5% маржа
-//        double rateWithMargin = rate - margin;  // При продаже маржа вычитается
-//
-//        // ожидаемый результат от продажи валюты
-//        double expectedResult = amountToExchange * rateWithMargin;
-//
-//        double actualResult = operations.calcRes(currencyName);
-//
-//        assertEquals(expectedResult, actualResult, 0.01);
+        double amountToExchange = 100;
+        String currencyName = "USD";
+        double rate = 0.9178;
+        double marge = rate * 0.05;
+        // вычитаем маржу для продажи
+        double rateWithMarge = rate - marge;
+        // ожидаемый результат от продажи
+        double expectedResult = amountToExchange * rateWithMarge;
+
+        double actualResult = operations.calcRes(currencyName, amountToExchange, 2);  // для продажи
+
+        assertEquals(expectedResult, actualResult, 0.01);
 
     }
 
     @Test
     void calcMarge() {
-//        double marge = operations.calcMarge();
-//        double expected = (100 * 1.5) + (200 * 2.0) + (300 * 1.0) + (400 * 1.2);
-//        assertEquals(expected, marge, 0.1);
-
+        String currencyCode = "USD";
+        double rate = 0.9178;
+        double expectedMarge = rate * 0.05;
+        //рассчитываем маржу с помощьюметода
+        double actualMarge = operations.calcMarge(currencyCode);
+        assertEquals(expectedMarge, actualMarge, 0.01);
     }
-    }
+}
