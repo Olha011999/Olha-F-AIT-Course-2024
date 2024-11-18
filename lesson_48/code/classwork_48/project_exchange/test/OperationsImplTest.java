@@ -68,6 +68,7 @@ class OperationsImplTest {
 
     @Test
     void calcRes() {
+
         double result = operations.calcRes("USD");
 //         узнаем сколько всего различных валют есть
         assertEquals(1000, result, 0.01);
@@ -96,5 +97,6 @@ class OperationsImplTest {
 //        double marge = operations.calcMarge();
 //        double expected = (100 * 1.5) + (200 * 2.0) + (300 * 1.0) + (400 * 1.2);
 //        assertEquals(expected, marge, 0.1);
+
     }
     }
