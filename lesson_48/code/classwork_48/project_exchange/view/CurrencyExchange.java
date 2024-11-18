@@ -10,7 +10,6 @@ public enum CurrencyExchange
     FJD(6,"FJD", 0.4091);
     //EGPP("EGP", 0.0187);
 
-
     private final int number;
     private String currency_codes;
     private double current_exchange;
